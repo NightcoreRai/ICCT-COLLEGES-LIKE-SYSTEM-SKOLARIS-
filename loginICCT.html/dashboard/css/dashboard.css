@@ -951,3 +951,90 @@
       .modal-content { padding: 1.5rem; }
       .gcash-number { font-size: 1.1rem; }
     }
+/* ═══════════════════════════════════════
+   LOGO FIX – circular image
+═══════════════════════════════════════ */
+.logo-icon {
+  overflow: hidden;
+  padding: 0;
+}
+.logo-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+/* ═══════════════════════════════════════
+   CAMPUS MAP CARDS
+═══════════════════════════════════════ */
+.map-spot-card {
+  background: var(--bg-card);
+  border-radius: 0.9rem;
+  overflow: hidden;
+  border: 1.5px solid var(--border);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.map-spot-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(17, 82, 160, 0.15);
+  border-color: var(--icct-accent);
+}
+
+.map-img-wrap {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}
+
+.map-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+.map-spot-card:hover .map-img-wrap img {
+  transform: scale(1.06);
+}
+
+.map-img-badge {
+  position: absolute;
+  bottom: 0.6rem;
+  left: 0.7rem;
+  background: rgba(10, 31, 53, 0.82);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: 2rem;
+  backdrop-filter: blur(4px);
+  letter-spacing: 0.03em;
+}
+
+.map-card-info {
+  padding: 0.85rem 1rem;
+}
+
+.map-card-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  margin-bottom: 0.25rem;
+}
+
+.map-card-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+#mapModal {
+  display: none;
+}
+#mapModal.open {
+  display: flex !important;
+}

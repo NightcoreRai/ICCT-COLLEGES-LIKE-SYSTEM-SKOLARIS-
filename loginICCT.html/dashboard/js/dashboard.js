@@ -15,7 +15,9 @@ function showSection(sectionName) {
   });
 
   event.target.closest('.nav-link').classList.add('active');
-  document.querySelector('.main-content').scrollTop = 0;
+  const mc2 = document.querySelector('.main-content');
+  if (mc2) mc2.scrollTop = 0;
+  window.scrollTo(0, 0);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -33,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function() {
       welcomeNameEl.textContent = (userData.name || 'User').split(' ')[0];
     }
 
-    // Populate profile fields
     if (document.getElementById('profileStudentId')) {
       document.getElementById('profileStudentId').value = userData.studentId || '';
       document.getElementById('profileFirstName').value = userData.firstName || userData.name.split(' ')[0] || '';
@@ -762,7 +763,9 @@ window.editStudent = function(studentId) {
         clickedLink.classList.add('active');
       }
       
-      document.querySelector('.main-content').scrollTop = 0;
+      const mc = document.querySelector('.main-content');
+      if (mc) mc.scrollTop = 0;
+      window.scrollTo(0, 0);
     }
 
     document.addEventListener('DOMContentLoaded', function() {
@@ -913,7 +916,6 @@ window.editStudent = function(studentId) {
       alert('Profile updated successfully!');
     }
 
-    // Close modal with Escape key
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') {
         closeGcashModal();
