@@ -1,25 +1,3 @@
-function showSection(sectionName) {
-  const sections = document.querySelectorAll('[id$="-section"]');
-  sections.forEach(section => {
-    section.style.display = 'none';
-  });
-
-  const selectedSection = document.getElementById(`${sectionName}-section`);
-  if (selectedSection) {
-    selectedSection.style.display = 'block';
-  }
-
-  const navLinks = document.querySelectorAll('.nav-link');
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-  });
-
-  event.target.closest('.nav-link').classList.add('active');
-  const mc2 = document.querySelector('.main-content');
-  if (mc2) mc2.scrollTop = 0;
-  window.scrollTo(0, 0);
-}
-
 document.addEventListener('DOMContentLoaded', function() {
   const userData = JSON.parse(localStorage.getItem('userData'));
   
@@ -35,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
       welcomeNameEl.textContent = (userData.name || 'User').split(' ')[0];
     }
 
+    // Populate profile fields
     if (document.getElementById('profileStudentId')) {
       document.getElementById('profileStudentId').value = userData.studentId || '';
       document.getElementById('profileFirstName').value = userData.firstName || userData.name.split(' ')[0] || '';
