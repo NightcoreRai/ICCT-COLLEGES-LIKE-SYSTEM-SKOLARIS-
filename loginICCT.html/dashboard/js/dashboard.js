@@ -538,21 +538,21 @@ window.editStudent = function(studentId) {
     const overlay = document.getElementById('sidebarOverlay');
 
     function toggleSidebar() {
-      hamburger.classList.toggle('active');
-      sidebar.classList.toggle('open');
-      overlay.classList.toggle('active');
+      if (hamburger) hamburger.classList.toggle('active');
+      if (sidebar) sidebar.classList.toggle('open');
+      if (overlay) overlay.classList.toggle('active');
     }
 
-    hamburger.addEventListener('click', toggleSidebar);
-    overlay.addEventListener('click', toggleSidebar);
+    if (hamburger) hamburger.addEventListener('click', toggleSidebar);
+    if (overlay) overlay.addEventListener('click', toggleSidebar);
 
     // Close sidebar when a link is clicked (mobile)
     document.querySelectorAll('.nav-link').forEach(link => {
       link.addEventListener('click', function() {
         if (window.innerWidth <= 992) {
-          hamburger.classList.remove('active');
-          sidebar.classList.remove('open');
-          overlay.classList.remove('active');
+          if (hamburger) hamburger.classList.remove('active');
+          if (sidebar) sidebar.classList.remove('open');
+          if (overlay) overlay.classList.remove('active');
         }
       });
     });
@@ -562,13 +562,13 @@ window.editStudent = function(studentId) {
     // ============================================
     
     const shopItems = [
-      { id: 1, name: 'CSS Uniform (F/M)', img: 'CSS Uniform.png', price: 800, desc: 'Official CCS department uniform for male and female students.' },
-      { id: 2, name: 'CCS Vest (F/M)',  img: 'CCS Vest.jpg', price: 420, desc: 'Official College of Computer Studies knitted vest.' },
-      { id: 3, name: 'NSTP T-shirt (old)', img: 'NSTP old.jfif', price: 230, desc: 'NSTP department shirt (previous design).' },
-      { id: 4, name: 'NSTP T-shirt (new)', img: 'nstp shirt new.jpg', price: 180, desc: 'Official new design NSTP department shirt.' },
-      { id: 5, name: 'PE Pants Jogger (Unisex)',  img: 'PE Jogger.jfif', price: 300, desc: 'Unisex physical education jogging pants.' },
-      { id: 6, name: 'PE T-Shirt (Unisex)',  img: 'PE T-shirt.jfif', price: 180, desc: 'Comfortable unisex physical education t-shirt.' },
-      { id: 7, name: 'School Id Set',  img: 'School Id lace.jpg', price: 80, desc: 'Official ICCT Colleges ID card holder and lanyard set.' }
+      { id: 1, name: 'CCS Uniform (F/M)', img: '../pictures/CCS Uniform.png', price: 800, desc: 'Official CCS department uniform for male and female students.' },
+      { id: 2, name: 'CCS Vest (F/M)',  img: '../pictures/CCS Vest.jpg', price: 420, desc: 'Official College of Computer Studies knitted vest.' },
+      { id: 3, name: 'NSTP T-shirt (old)', img: '../pictures/NSTP old.jpg', price: 230, desc: 'NSTP department shirt (previous design).' },
+      { id: 4, name: 'NSTP T-shirt (new)', img: '../pictures/nstp shirt new.jpg', price: 180, desc: 'Official new design NSTP department shirt.' },
+      { id: 5, name: 'PE Pants Jogger (Unisex)',  img: '../pictures/PE Jogger.jpg', price: 300, desc: 'Unisex physical education jogging pants.' },
+      { id: 6, name: 'PE T-Shirt (Unisex)',  img: '../pictures/PE T-shirt.jpg', price: 180, desc: 'Comfortable unisex physical education t-shirt.' },
+      { id: 7, name: 'School Id Set',  img: '../pictures/School Id lace.jpg', price: 80, desc: 'Official ICCT Colleges ID card holder and lanyard set.' }
     ];
 
     let cart = [];
@@ -823,7 +823,7 @@ window.editStudent = function(studentId) {
       const newPassword = document.getElementById('newPassword').value;
       const confirmNewPassword = document.getElementById('confirmNewPassword').value;
       const userData = JSON.parse(localStorage.getItem('userData') || '{}');
-      const username = userData.name;
+      const username = userData.studentId || userData.name;
 
       if (!username) {
         alert('No user is signed in.');
@@ -852,7 +852,7 @@ window.editStudent = function(studentId) {
       const credentials = { ...validCredentials, ...storedCredentials };
 
       if (!credentials[username]) {
-        alert('Unable to find your account.');
+        alert('Unable to find your account. Please log out and log in again.');
         return;
       }
       if (credentials[username] !== currentPassword) {
@@ -873,21 +873,40 @@ window.editStudent = function(studentId) {
 
     function updateProfileInfo() {
       const userData = JSON.parse(localStorage.getItem('userData') || '{}');
-      const firstName = document.querySelector('#profile-section input[type="text"]')?.value;
-      const email = document.querySelector('#profile-section input[type="email"]')?.value;
-      
-      if (!userData) {
-        alert('Unable to update profile.');
+      if (!userData || !userData.isLoggedIn) {
+        alert('Unable to update profile. User not logged in.');
         return;
       }
-      
+
+      const firstName = document.getElementById('profileFirstName').value.trim();
+      const lastName = document.getElementById('profileLastName').value.trim();
+      const email = document.getElementById('profileEmail').value.trim();
+      const phone = document.getElementById('profilePhone').value.trim();
+      const birthDate = document.getElementById('profileBirthDate').value;
+
+      if (!firstName || !lastName || !email) {
+        alert('First name, last name, and email are required.');
+        return;
+      }
+
       const updatedUserData = {
         ...userData,
-        name: firstName || userData.name,
-        email: email || userData.email
+        firstName,
+        lastName,
+        name: `${firstName} ${lastName}`.trim(),
+        email,
+        phone,
+        birthDate
       };
-      
+
       localStorage.setItem('userData', JSON.stringify(updatedUserData));
+
+      const accounts = JSON.parse(localStorage.getItem('userAccounts') || '{}');
+      if (accounts[userData.studentId]) {
+        accounts[userData.studentId] = { ...accounts[userData.studentId], firstName, lastName, email, phone, birthDate };
+        localStorage.setItem('userAccounts', JSON.stringify(accounts));
+      }
+
       document.getElementById('userName').textContent = updatedUserData.name || 'User';
       document.getElementById('userInitial').textContent = (updatedUserData.name || 'U').charAt(0).toUpperCase();
       document.getElementById('welcomeName').textContent = (updatedUserData.name || 'User').split(' ')[0];
