@@ -517,24 +517,40 @@ window.editStudent = function(studentId) {
     const sidebar = document.getElementById('sidebar');
     const overlay = document.getElementById('sidebarOverlay');
 
+    function openSidebar() {
+      if (hamburger) hamburger.classList.add('active');
+      if (sidebar) sidebar.classList.add('open');
+      if (overlay) overlay.classList.add('active');
+    }
+
+    function closeSidebar() {
+      if (hamburger) hamburger.classList.remove('active');
+      if (sidebar) sidebar.classList.remove('open');
+      if (overlay) overlay.classList.remove('active');
+    }
+
     function toggleSidebar() {
-      if (hamburger) hamburger.classList.toggle('active');
-      if (sidebar) sidebar.classList.toggle('open');
-      if (overlay) overlay.classList.toggle('active');
+      if (sidebar && sidebar.classList.contains('open')) {
+        closeSidebar();
+      } else {
+        openSidebar();
+      }
     }
 
     if (hamburger) hamburger.addEventListener('click', toggleSidebar);
-    if (overlay) overlay.addEventListener('click', toggleSidebar);
+    if (overlay) overlay.addEventListener('click', closeSidebar);
 
-    // Close sidebar when a link is clicked (mobile)
+    // Close sidebar when ANY nav link is clicked
     document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', function() {
-        if (window.innerWidth <= 992) {
-          if (hamburger) hamburger.classList.remove('active');
-          if (sidebar) sidebar.classList.remove('open');
-          if (overlay) overlay.classList.remove('active');
-        }
-      });
+      link.addEventListener('click', closeSidebar);
+    });
+
+    // Close sidebar when clicking anywhere outside it (doesn't block scrolling)
+    document.addEventListener('click', function(e) {
+      if (!sidebar || !sidebar.classList.contains('open')) return;
+      if (sidebar.contains(e.target)) return;
+      if (hamburger && hamburger.contains(e.target)) return;
+      closeSidebar();
     });
 
     // ============================================
@@ -742,6 +758,9 @@ window.editStudent = function(studentId) {
         clickedLink.classList.add('active');
       }
       
+      // Always close sidebar when navigating
+      closeSidebar();
+
       const mc = document.querySelector('.main-content');
       if (mc) mc.scrollTop = 0;
       window.scrollTo(0, 0);
@@ -895,6 +914,7 @@ window.editStudent = function(studentId) {
       alert('Profile updated successfully!');
     }
 
+    // Close modal with Escape key
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') {
         closeGcashModal();

@@ -224,12 +224,13 @@
     .overlay {
       display: none;
       position: fixed;
-      top: 0;
+      top: 64px;
       left: 0;
-      width: 100%;
+      width: var(--sidebar-w);
       height: 100%;
-      background: rgba(0,0,0,0.5);
-      z-index: 150;
+      background: transparent;
+      z-index: 155;
+      cursor: pointer;
     }
 
     .overlay.active {
@@ -353,6 +354,9 @@
       padding: 2rem;
       overflow-y: auto;
       min-height: 0;
+      pointer-events: all;
+      position: relative;
+      z-index: 1;
     }
 
     .main-content > section > h1 {
