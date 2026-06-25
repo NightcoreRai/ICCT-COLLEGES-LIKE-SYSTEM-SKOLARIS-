@@ -12,7 +12,7 @@
 <body>
   <div class="header">
     <div class="logo">
-      <div class="logo-icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7Me6i052XanRLG-6TpuGAxvycQxrvTm_z4Q&s" alt="ICCT LOGO"></div>
+      <div class="logo-icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7Me6i052XanRLG-6TpuGAxvycQxrvTm_z4Q&s" alt="ICCT LOGO" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;"></div>
       <div class="logo-text">
         <span class="logo-name">ICCT Colleges</span>
         <span class="logo-sub">Student Portal</span>
@@ -96,6 +96,13 @@
   <a href="#help" class="nav-link" onclick="showSection('help')">
     <span class="nav-icon">❓</span>
     <span>Help Center</span>
+  </a>
+</li>
+
+<li class="nav-item">
+  <a href="#map" class="nav-link" onclick="showSection('map')">
+    <span class="nav-icon">🗺️</span>
+    <span>Campus Map</span>
   </a>
 </li>
       </ul>
@@ -532,7 +539,145 @@
     </div>
   </div>
 
-  <!-- GCASH PAYMENT MODAL -->
+      <!-- CAMPUS MAP -->
+      <section id="map-section" style="display: none;">
+        <h1 style="margin-bottom: 2rem; color: #0c2f46;">🗺️ Campus Map</h1>
+
+        <!-- Embed Google Maps for ICCT Cainta -->
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <div class="card-header">
+            <h2 class="card-title">📍 ICCT Colleges – Cainta Campus Location</h2>
+          </div>
+          <div style="border-radius: 0.8rem; overflow: hidden; border: 2px solid var(--border);">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.3!2d121.1153!3d14.5756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c7e4a3b1f8e7%3A0x9c2e7d1a2b3c4d5e!2sICCT%20Colleges%20-%20Cainta%20Campus!5e0!3m2!1sen!2sph!4v1700000000000!5m2!1sen!2sph"
+              width="100%"
+              height="380"
+              style="display:block; border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+          <div style="margin-top: 0.8rem; padding: 0.6rem 1rem; background: rgba(17,82,160,0.06); border-radius: 0.5rem; font-size: 0.88rem; color: var(--text-muted);">
+            📌 <strong>Address:</strong> Ortigas Avenue Extension, Cainta, Rizal, Philippines &nbsp;|&nbsp; 📞 <strong>Tel:</strong> (02) 8682-8000
+          </div>
+        </div>
+
+        <!-- Campus Facilities Grid -->
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">🏫 Campus Facilities</h2>
+            <span style="font-size:0.85rem; color:var(--text-muted);">Click any image to view full size</span>
+          </div>
+
+          <div class="campus-map-grid" style="
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1rem;
+          ">
+
+            <!-- ICCT Main Campus -->
+            <div class="map-spot-card" onclick="openMapModal('images/icct-campus.jpg','ICCT Cainta – Main Campus','The main entrance and academic building of ICCT Colleges Cainta campus.')" style="cursor:pointer;">
+              <div class="map-img-wrap">
+                <img src="images/icct-campus.jpg" alt="ICCT Main Campus" loading="lazy">
+                <div class="map-img-badge">🏛️ Main Campus</div>
+              </div>
+              <div class="map-card-info">
+                <div class="map-card-title">ICCT Cainta – Main Campus</div>
+                <div class="map-card-desc">Main academic building, admin offices, and registrar</div>
+              </div>
+            </div>
+
+            <!-- Antipolo Campus -->
+            <div class="map-spot-card" onclick="openMapModal('images/Antipolo Campus.webp','Antipolo Campus','ICCT Colleges Antipolo campus branch.')" style="cursor:pointer;">
+              <div class="map-img-wrap">
+                <img src="images/Antipolo Campus.webp" alt="Antipolo Campus" loading="lazy">
+                <div class="map-img-badge">🏫 Antipolo Campus</div>
+              </div>
+              <div class="map-card-info">
+                <div class="map-card-title">Antipolo Campus</div>
+                <div class="map-card-desc">ICCT branch campus in Antipolo City, Rizal</div>
+              </div>
+            </div>
+
+            <!-- Library -->
+            <div class="map-spot-card" onclick="openMapModal('images/library.jpg','Library','The ICCT library provides academic resources, books, and study areas for students.')" style="cursor:pointer;">
+              <div class="map-img-wrap">
+                <img src="images/library.jpg" alt="Library" loading="lazy">
+                <div class="map-img-badge">📚 Library</div>
+              </div>
+              <div class="map-card-info">
+                <div class="map-card-title">Library</div>
+                <div class="map-card-desc">Academic resources, books, journals & quiet study area</div>
+              </div>
+            </div>
+
+            <!-- Covered Court -->
+            <div class="map-spot-card" onclick="openMapModal('images/covered-court.jpg','Covered Court','Multi-purpose covered court used for PE classes, sports events, and assemblies.')" style="cursor:pointer;">
+              <div class="map-img-wrap">
+                <img src="images/covered-court.jpg" alt="Covered Court" loading="lazy">
+                <div class="map-img-badge">🏀 Covered Court</div>
+              </div>
+              <div class="map-card-info">
+                <div class="map-card-title">Covered Court</div>
+                <div class="map-card-desc">PE classes, sports events & school assemblies</div>
+              </div>
+            </div>
+
+            <!-- Admission Office -->
+            <div class="map-spot-card" onclick="openMapModal('images/admission.jpg','Admission Office','The admission office handles student applications, enrollment, and inquiries.')" style="cursor:pointer;">
+              <div class="map-img-wrap">
+                <img src="images/admission.jpg" alt="Admission Office" loading="lazy">
+                <div class="map-img-badge">📋 Admissions</div>
+              </div>
+              <div class="map-card-info">
+                <div class="map-card-title">Admission Office</div>
+                <div class="map-card-desc">Applications, enrollment & student inquiries</div>
+              </div>
+            </div>
+
+            <!-- Hallway -->
+            <div class="map-spot-card" onclick="openMapModal('images/hallway.jpg','Campus Hallway','Main hallways connecting classrooms, laboratories, and offices.')" style="cursor:pointer;">
+              <div class="map-img-wrap">
+                <img src="images/hallway.jpg" alt="Campus Hallway" loading="lazy">
+                <div class="map-img-badge">🚶 Hallway</div>
+              </div>
+              <div class="map-card-info">
+                <div class="map-card-title">Campus Hallway</div>
+                <div class="map-card-desc">Connecting classrooms, labs & faculty offices</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- CAMPUS MAP LIGHTBOX MODAL -->
+      <div id="mapModal" style="
+        display:none; position:fixed; inset:0; background:rgba(0,0,0,0.82);
+        z-index:9999; align-items:center; justify-content:center;
+      " onclick="closeMapModal()">
+        <div style="
+          background:#fff; border-radius:1rem; max-width:780px; width:90%;
+          overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.5);
+          position:relative;
+        " onclick="event.stopPropagation()">
+          <button onclick="closeMapModal()" style="
+            position:absolute; top:0.8rem; right:0.8rem; background:rgba(0,0,0,0.6);
+            color:#fff; border:none; border-radius:50%; width:34px; height:34px;
+            font-size:1.2rem; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:2;
+          ">×</button>
+          <img id="mapModalImg" src="" alt="" style="width:100%; max-height:500px; object-fit:cover; display:block;">
+          <div style="padding:1.2rem 1.5rem;">
+            <div id="mapModalTitle" style="font-weight:700; font-size:1.15rem; color:#0c2f46; margin-bottom:0.4rem;"></div>
+            <div id="mapModalDesc" style="font-size:0.9rem; color:#6b8299;"></div>
+          </div>
+        </div>
+      </div>
+
+
   <div class="modal" id="gcashModal">
     <div class="modal-content">
       <button class="modal-close" onclick="closeGcashModal()">&times;</button>
@@ -580,5 +725,23 @@
     </div>
   </div>
   <script src="js/dashboard.js"></script>
+  <script>
+    function openMapModal(imgSrc, title, desc) {
+      document.getElementById('mapModalImg').src = imgSrc;
+      document.getElementById('mapModalImg').alt = title;
+      document.getElementById('mapModalTitle').textContent = title;
+      document.getElementById('mapModalDesc').textContent = desc;
+      const modal = document.getElementById('mapModal');
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMapModal() {
+      document.getElementById('mapModal').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeMapModal();
+    });
+  </script>
 </body>
 </html>
