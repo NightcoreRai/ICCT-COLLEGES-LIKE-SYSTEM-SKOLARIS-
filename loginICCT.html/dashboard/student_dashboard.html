@@ -547,31 +547,10 @@
 
       <!-- CAMPUS MAP -->
       <section id="map-section" style="display: none;">
-        <h1 style="margin-bottom: 2rem; color: #0c2f46;">🗺️ Campus Map</h1>
+        <h1 style="margin-bottom: 1.5rem; color: #0c2f46;">🗺️ Campus Map</h1>
 
-        <!-- Embed Google Maps for ICCT Cainta -->
+        <!-- Campus Facilities Grid — TOP -->
         <div class="card" style="margin-bottom: 1.5rem;">
-          <div class="card-header">
-            <h2 class="card-title">📍 ICCT Colleges – Antipolo Campus Location</h2>
-          </div>
-          <div style="border-radius: 0.8rem; overflow: hidden; border: 2px solid var(--border);">
-            <iframe
-              src="https://maps.google.com/maps?q=ICCT+Colleges+Antipolo+Sumulong+Extension+St+Brgy+San+Roque+Antipolo+Rizal&t=&z=17&ie=UTF8&iwloc=&output=embed"
-              width="100%"
-              height="380"
-              style="display:block; border:0;"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-          </div>
-          <div style="margin-top: 0.8rem; padding: 0.6rem 1rem; background: rgba(17,82,160,0.06); border-radius: 0.5rem; font-size: 0.88rem; color: var(--text-muted);">
-            📌 <strong>Address:</strong> ICCT Bldg., Sumulong Extension St., Brgy. San Roque, Antipolo City, Rizal &nbsp;|&nbsp; 📞 <strong>Tel:</strong> (02) 8682-8000
-          </div>
-        </div>
-
-        <!-- Campus Facilities Grid -->
-        <div class="card">
           <div class="card-header">
             <h2 class="card-title">🏫 Campus Facilities</h2>
             <span style="font-size:0.85rem; color:var(--text-muted);">Click any image to view full size</span>
@@ -579,32 +558,32 @@
 
           <div class="campus-map-grid" style="
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.2rem;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1rem;
             margin-top: 1rem;
           ">
 
-            <!-- ICCT Main Campus -->
-            <div class="map-spot-card" onclick="openMapModal('images/icct-campus.jpg','ICCT Cainta – Main Campus','The main entrance and academic building of ICCT Colleges Cainta campus.')" style="cursor:pointer;">
+            <!-- Antipolo Campus (first — matches the actual campus) -->
+            <div class="map-spot-card" onclick="openMapModal('images/icct-campus.jpg','Antipolo Campus','Main entrance and academic building of ICCT Colleges Antipolo campus.')" style="cursor:pointer;">
               <div class="map-img-wrap">
-                <img src="images/icct-campus.jpg" alt="ICCT Main Campus" loading="lazy">
-                <div class="map-img-badge">🏛️ Main Campus</div>
+                <img src="images/icct-campus.jpg" alt="Antipolo Campus" loading="lazy">
+                <div class="map-img-badge">🏛️ Antipolo Campus</div>
               </div>
               <div class="map-card-info">
-                <div class="map-card-title">ICCT Cainta – Main Campus</div>
+                <div class="map-card-title">Antipolo Campus</div>
                 <div class="map-card-desc">Main academic building, admin offices, and registrar</div>
               </div>
             </div>
 
-            <!-- Antipolo Campus -->
-            <div class="map-spot-card" onclick="openMapModal('images/Antipolo Campus.webp','Antipolo Campus','ICCT Colleges Antipolo campus branch.')" style="cursor:pointer;">
+            <!-- Antipolo Satellite Campus -->
+            <div class="map-spot-card" onclick="openMapModal('images/Antipolo Campus.webp','Antipolo Satellite Campus','ICCT Colleges Antipolo satellite campus.')" style="cursor:pointer;">
               <div class="map-img-wrap">
-                <img src="images/Antipolo Campus.webp" alt="Antipolo Campus" loading="lazy">
-                <div class="map-img-badge">🏫 Antipolo Campus</div>
+                <img src="images/Antipolo Campus.webp" alt="Antipolo Satellite Campus" loading="lazy">
+                <div class="map-img-badge">🏫 Satellite Campus</div>
               </div>
               <div class="map-card-info">
-                <div class="map-card-title">Antipolo Campus</div>
-                <div class="map-card-desc">ICCT branch campus in Antipolo City, Rizal</div>
+                <div class="map-card-title">Antipolo Satellite Campus</div>
+                <div class="map-card-desc">ICCT satellite campus in Antipolo City, Rizal</div>
               </div>
             </div>
 
@@ -658,6 +637,28 @@
 
           </div>
         </div>
+
+        <!-- Google Map — BOTTOM, smaller -->
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <div class="card-header">
+            <h2 class="card-title">📍 ICCT Colleges – Antipolo Campus Location</h2>
+          </div>
+          <div style="border-radius: 0.8rem; overflow: hidden; border: 2px solid var(--border);">
+            <iframe
+              src="https://maps.google.com/maps?q=ICCT+Colleges+Antipolo+Sumulong+Extension+St+Brgy+San+Roque+Antipolo+Rizal&t=&z=17&ie=UTF8&iwloc=&output=embed"
+              width="100%"
+              height="260"
+              style="display:block; border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+          <div style="margin-top: 0.8rem; padding: 0.6rem 1rem; background: rgba(17,82,160,0.06); border-radius: 0.5rem; font-size: 0.88rem; color: var(--text-muted);">
+            📌 <strong>Address:</strong> ICCT Bldg., Sumulong Extension St., Brgy. San Roque, Antipolo City, Rizal &nbsp;|&nbsp; 📞 <strong>Tel:</strong> (02) 8682-8000
+          </div>
+        </div>
+
       </section>
 
       <!-- CAMPUS MAP LIGHTBOX MODAL -->
