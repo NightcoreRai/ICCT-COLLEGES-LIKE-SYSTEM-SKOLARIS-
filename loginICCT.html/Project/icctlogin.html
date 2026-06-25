@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="log.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+   <title>LogInPortal</title>
+</head>
+<body>
+  <!-- ambient glow orbs -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+      <div class="form-page" id="login-page" style="display: block;">   
+    <div class="card">
+      <div class="portal-logo">
+        <div class="portal-logo-icon" aria-hidden="true">
+          <img class="portal-logo-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7Me6i052XanRLG-6TpuGAxvycQxrvTm_z4Q&s" alt="ICCT logo" />
+        </div>
+        <div class="portal-logo-text">
+          <span class="portal-logo-name">ICCT Colleges</span>
+          <span class="portal-logo-tagline">Student Portal</span>
+        </div>
+      </div>
+      <h2>Welcome back</h2>
+
+      <p class="greeting">Sign in to your student account</p>
+      <form id="loginFormSeparate">
+        <div class="input-group">
+          <label>Student ID</label>
+          <div class="input-wrapper">
+            <span class="input-icon"><ion-icon name="person"></ion-icon></span>
+            <input type="text" name="username" placeholder="UA2025..." autocomplete="username" required>
+          </div>
+        </div>
+        <div class="input-group">
+          <label>Password</label>
+          <div class="input-wrapper">
+            <span class="input-icon"><ion-icon name="lock-closed"></ion-icon></span>
+            <input type="password" name="password" placeholder="········" autocomplete="current-password" required>
+          </div>
+        </div>
+        <div class="checkbox-row">
+          <input type="checkbox" id="remember-solo">
+          <label for="remember-solo">keep me logged in</label>
+        </div>
+        <button class="btn" type="submit">log in</button>
+        <div class="footnote">
+          <a href="#" id="forgotPasswordLink">forgot password?</a>  ·  <a href="#">help</a>
+        </div>
+      </form>
+
+      
+      <div class="switch-link">
+        register account here <a href="#" id="gotoRegister">register</a>
+      </div>
+
+      <hr>
+      <div class="separator-note">
+        <span class="alert-note">ICCT Colleges Foundation Inc.</span>
+      </div>
+      <div class="icct-motto">A Global Pinoy Distinction</div>
+    </div>
+  </div>
+
+ 
+  <div class="form-page" id="forgot-page" style="display: none;">
+    <div class="card">
+      <div class="portal-logo">
+        <div class="portal-logo-icon" aria-hidden="true">
+          <img class="portal-logo-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7Me6i052XanRLG-6TpuGAxvycQxrvTm_z4Q&s" alt="ICCT logo" />
+        </div>
+        <div class="portal-logo-text">
+          <span class="portal-logo-name">ICCT Colleges</span>
+          <span class="portal-logo-tagline">Account Recovery</span>
+        </div>
+      </div>
+
+      <h2>Reset Password</h2>
+      <p class="greeting">Enter your credentials to set a new password</p>
+      <form id="forgotPasswordForm">
+        <div class="input-group">
+          <label>Username</label>
+          <div class="input-wrapper">
+            <span class="input-icon"><ion-icon name="people"></ion-icon></span>
+            <input type="text" name="resetUsername" placeholder="Enter your username" required>
+          </div>
+        </div>
+        <div class="input-group">
+          <label>New Password</label>
+          <div class="input-wrapper">
+            <span class="input-icon"><ion-icon name="lock-closed"></ion-icon></span>
+            <input type="password" name="resetPassword" placeholder="New password" required>
+          </div>
+        </div>
+        <div class="input-group">
+          <label>Confirm New Password</label>
+          <div class="input-wrapper">
+            <span class="input-icon">✓</span>
+            <input type="password" name="resetConfirmPassword" placeholder="Confirm password" required>
+          </div>
+        </div>
+        <button class="btn" type="submit">Reset Password</button>
+        <div class="footnote">
+          <a href="#" id="backToLogin">Back to login</a>
+        </div>
+      </form>
+      <hr>
+      <div class="separator-note">
+        <span class="alert-note"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-page" id="register-page" style="display: none;">   
+    <div class="card">
+      <form id="registerFormSeparate" onsubmit="return false;">
+      <div class="portal-logo">
+        <div class="portal-logo-icon" aria-hidden="true">
+          <img class="portal-logo-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7Me6i052XanRLG-6TpuGAxvycQxrvTm_z4Q&s" alt="ICCT logo" />
+        </div>
+        <div class="portal-logo-text">
+          <span class="portal-logo-name">ICCT Colleges</span>
+          <span class="portal-logo-tagline">Student Portal</span>
+        </div>
+      </div>
+      <h2>Create Account</h2>
+
+      <div class="greeting">Register as a new student</div>
+
+        <div class="input-group">
+          <label>Student ID</label>
+          <div class="input-wrapper">
+            <span class="input-icon"><ion-icon name="card"></ion-icon></span>
+            <input type="text" name="studentId" placeholder="UA2025..." required>
+          </div>
+        </div>
+        <div class="input-group">
+          <label>First Name</label>
+          <div class="input-wrapper">
+            <span class="input-icon"><ion-icon name="person-outline"></ion-icon></span>
+            <input type="text" name="firstName" placeholder="John" required>
+          </div>
+        </div>
+        <div class="input-group">
+          <label>Last Name</label>
+          <div class="input-wrapper">
+            <span class="input-icon"><ion-icon name="person-outline"></ion-icon></span>
+            <input type="text" name="lastName" placeholder="Doe" required>
+          </div>
+        </div>
+        <div class="input-group">
+          <label>Email</label>
+          <div class="input-wrapper">
+            <span class="input-icon"><ion-icon name="mail-outline"></ion-icon></span>
+            <input type="email" name="email" placeholder="john.doe@icct.edu.ph" required>
+          </div>
+        </div>
+        <div class="input-group">
+          <label>Phone</label>
+          <div class="input-wrapper">
+            <span class="input-icon"><ion-icon name="call-outline"></ion-icon></span>
+            <input type="tel" name="phone" placeholder="0917 123 4567" required>
+          </div>
+        </div>
+        <div class="input-group">
+          <label>Date of Birth</label>
+          <div class="input-wrapper">
+            <span class="input-icon"><ion-icon name="calendar"></ion-icon></span>
+            <input type="date" name="birthDate" required>
+          </div>
+        </div>
+        <div class="input-group">
+          <label>Enrollment Date</label>
+          <div class="input-wrapper">
+            <span class="input-icon"><ion-icon name="calendar"></ion-icon></span>
+            <input type="date" name="enrollDate" required>
+          </div>
+        </div>
+        <div class="input-group">
+          <label>Year Level</label>
+          <div class="input-wrapper">
+            <span class="input-icon"><ion-icon name="school"></ion-icon></span>
+            <select name="gradeLevel" required>
+              <option value="">Select year level</option>
+              <option value="1st Year">1st Year</option>
+              <option value="2nd Year">2nd Year</option>
+              <option value="3rd Year">3rd Year</option>
+              <option value="4th Year">4th Year</option>
+            </select>
+          </div>
+        </div>
+        <div class="input-group">
+          <label>Course / Program</label>
+          <div class="input-wrapper">
+            <span class="input-icon"><ion-icon name="book-outline"></ion-icon></span>
+            <select name="course" required>
+              <option value="">Select your course</option>
+              <optgroup label="IT &amp; Computing">
+                <option value="BSIT">BSIT – Bachelor of Science in Information Technology</option>
+                <option value="BSCS">BSCS – Bachelor of Science in Computer Science</option>
+                <option value="BSIS">BSIS – Bachelor of Science in Information Systems</option>
+                <option value="ACT">ACT – Associate in Computer Technology (2-year)</option>
+              </optgroup>
+              <optgroup label="Business &amp; Accountancy">
+                <option value="BSA">BSA – Bachelor of Science in Accountancy</option>
+                <option value="BSMA">BSMA – Bachelor of Science in Management Accounting</option>
+                <option value="BSIA">BSIA – Bachelor of Science in Internal Auditing</option>
+                <option value="BSAIS">BSAIS – Bachelor of Science in Accounting Information Systems</option>
+                <option value="BSRE">BSRE – Bachelor of Science in Real Estate Management</option>
+                <option value="BSBA-MM">BSBA – Major in Marketing Management</option>
+                <option value="BSBA-FM">BSBA – Major in Financial Management</option>
+                <option value="BSBA-HRM">BSBA – Major in Human Resource Management</option>
+                <option value="BSBA-OM">BSBA – Major in Operations Management</option>
+                <option value="ABA">ABA – Associate in Business Administration (2-year)</option>
+              </optgroup>
+              <optgroup label="Health Sciences">
+                <option value="BSN">BSN – Bachelor of Science in Nursing</option>
+                <option value="BSMT">BSMT – Bachelor of Science in Medical Technology</option>
+                <option value="BSRadTech">BSRadTech – Bachelor of Science in Radiologic Technology</option>
+              </optgroup>
+              <optgroup label="Education">
+                <option value="BELEMEd">BELEMEd – Bachelor of Early Childhood Education</option>
+                <option value="BSEd-English">BSEd – Major in English</option>
+                <option value="BSEd-Math">BSEd – Major in Mathematics</option>
+                <option value="BSEd-Science">BSEd – Major in Science</option>
+                <option value="BSEd-Filipino">BSEd – Major in Filipino</option>
+                <option value="BSEd-SocStudies">BSEd – Major in Social Studies</option>
+                <option value="BECEd">BECEd – Bachelor of Early Childhood Education</option>
+                <option value="BTVTEd">BTVTEd – Bachelor of Technical-Vocational Teacher Education</option>
+                <option value="CPT">CPT – Certificate in Professional Teaching</option>
+              </optgroup>
+              <optgroup label="Engineering">
+                <option value="BSCoE">BSCoE – Bachelor of Science in Computer Engineering</option>
+                <option value="BSECE">BSECE – Bachelor of Science in Electronics Engineering</option>
+              </optgroup>
+              <optgroup label="Hospitality &amp; Tourism">
+                <option value="BSHM">BSHM – Bachelor of Science in Hospitality Management</option>
+                <option value="BSTM">BSTM – Bachelor of Science in Tourism Management</option>
+              </optgroup>
+              <optgroup label="Arts &amp; Sciences">
+                <option value="ABComm">ABComm – Bachelor of Arts in Communication</option>
+                <option value="ABEng">ABEng – Bachelor of Arts in English</option>
+                <option value="BSP">BSP – Bachelor of Science in Psychology</option>
+                <option value="BSM">BSM – Bachelor of Science in Mathematics</option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+        <div class="input-group">
+          <label>Password</label>
+          <div class="input-wrapper">
+            <span class="input-icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+            <input type="password" name="password" placeholder="Create a password" required>
+          </div>
+        </div>
+        <div class="input-group">
+          <label>Confirm Password</label>
+          <div class="input-wrapper">
+            <span class="input-icon">✓</span>
+            <input type="password" name="confirmPassword" placeholder="Confirm password" required>
+          </div>
+        </div>
+
+        <div class="checkbox-row" style="margin-top: 0.5rem;">
+          <input type="checkbox" id="terms-solo" required>
+          <label for="terms-solo">I agree to <a href="#">terms</a> and <a href="#">privacy</a>.</label>
+        </div>
+
+        <button class="btn btn-register" type="submit">sign up</button>
+        <div class="footnote">
+          already registered? <a href="#" id="gotoLogin">log in</a>
+        </div>
+      </form>
+
+      <hr>
+      <div class="separator-note">
+        <span class="alert-note"></span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+    (function() {
+      const validCredentials = {
+      };
+      function getStoredCredentials() {
+        try {
+          return JSON.parse(localStorage.getItem('validCredentials') || '{}');
+        } catch (error) {
+          return {};
+        }
+      }
+
+      function saveStoredCredentials(credentials) {
+        localStorage.setItem('validCredentials', JSON.stringify(credentials));
+      }
+
+      function getStoredAccounts() {
+        try {
+          return JSON.parse(localStorage.getItem('userAccounts') || '{}');
+        } catch (error) {
+          return {};
+        }
+      }
+
+      function saveStoredAccounts(accounts) {
+        localStorage.setItem('userAccounts', JSON.stringify(accounts));
+      }
+
+      function loginUser(studentId) {
+        const accounts = getStoredAccounts();
+        const account = accounts[studentId];
+        const fullName = account ? `${account.firstName} ${account.lastName}` : studentId;
+
+        localStorage.setItem('userData', JSON.stringify({
+          name: fullName,
+          firstName: account ? account.firstName : studentId,
+          lastName: account ? account.lastName : '',
+          email: account ? account.email : studentId + '@icct.edu.ph',
+          studentId,
+          gradeLevel: account ? account.gradeLevel : '',
+          course: account ? account.course : '',
+          phone: account ? account.phone : '',
+          birthDate: account ? account.birthDate : '',
+          enrollDate: account ? account.enrollDate : '',
+          role: 'student',
+          isLoggedIn: true,
+          loginTime: new Date().toISOString()
+        }));
+        localStorage.setItem('authToken', 'demo_jwt_token_' + Date.now());
+        window.location.href = '../dashboard/student_dashboard.html';
+      }
+
+      const loginPage = document.getElementById('login-page');
+      const forgotPage = document.getElementById('forgot-page');
+      const registerPage = document.getElementById('register-page');
+      
+      function showLogin() {
+        loginPage.style.display = 'block';
+        forgotPage.style.display = 'none';
+        registerPage.style.display = 'none';
+      }
+
+      function showForgotPassword() {
+        loginPage.style.display = 'none';
+        forgotPage.style.display = 'block';
+        registerPage.style.display = 'none';
+      }
+
+      function showRegister() {
+        loginPage.style.display = 'none';
+        forgotPage.style.display = 'none';
+        registerPage.style.display = 'block';
+      }
+
+      const goToRegisterLink = document.getElementById('gotoRegister');
+      const goToLoginLink = document.getElementById('gotoLogin');
+      const forgotPasswordLink = document.getElementById('forgotPasswordLink');
+      const backToLoginLink = document.getElementById('backToLogin');
+
+      goToRegisterLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        showRegister();
+      });
+
+      goToLoginLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        showLogin();
+      });
+
+      forgotPasswordLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        showForgotPassword();
+      });
+
+      backToLoginLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        showLogin();
+      });
+
+      const loginForm = document.getElementById('loginFormSeparate');
+      loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const usernameInp = loginForm.querySelector('input[name="username"]');
+        const passInp = loginForm.querySelector('input[name="password"]');
+        
+        if (!usernameInp.value.trim()) {
+          alert('Username is required.');
+          return;
+        }
+        if (!passInp.value) {
+          alert('Password is required.');
+          return;
+        }
+        if (passInp.value.length < 6) {
+          alert('Password must be at least 6 characters long.');
+          return;
+        }
+        
+        const username = usernameInp.value.trim();
+        const password = passInp.value;
+        const storedCredentials = getStoredCredentials();
+        const credentials = { ...validCredentials, ...storedCredentials };
+        
+        if (!credentials[username]) {
+          alert('Invalid username. Please try again.');
+          return;
+        }
+        
+        if (credentials[username] !== password) {
+          alert('Invalid password. Please try again.');
+          return;
+        }
+
+        loginUser(username);
+      });
+
+      const forgotPasswordForm = document.getElementById('forgotPasswordForm');
+      forgotPasswordForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const resetUsername = forgotPasswordForm.querySelector('input[name="resetUsername"]');
+        const resetPassword = forgotPasswordForm.querySelector('input[name="resetPassword"]');
+        const resetConfirm = forgotPasswordForm.querySelector('input[name="resetConfirmPassword"]');
+
+        if (!resetUsername.value.trim() || !resetPassword.value || !resetConfirm.value) {
+          alert('Please fill in all fields.');
+          return;
+        }
+        if (resetPassword.value.length < 6) {
+          alert('New password must be at least 6 characters long.');
+          return;
+        }
+        if (resetPassword.value !== resetConfirm.value) {
+          alert('Passwords do not match.');
+          return;
+        }
+
+        const username = resetUsername.value.trim();
+        const storedCredentials = getStoredCredentials();
+        const credentials = { ...validCredentials, ...storedCredentials };
+
+        if (!credentials[username]) {
+          alert('Username not found. Please register or try again.');
+          return;
+        }
+
+        storedCredentials[username] = resetPassword.value;
+        saveStoredCredentials(storedCredentials);
+        alert('Password has been reset successfully. Please log in with your new password.');
+        forgotPasswordForm.reset();
+        showLogin();
+      });
+
+      const registerForm = document.getElementById('registerFormSeparate');
+      registerForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const studentIdField = registerForm.querySelector('input[name="studentId"]');
+        const firstNameField = registerForm.querySelector('input[name="firstName"]');
+        const lastNameField = registerForm.querySelector('input[name="lastName"]');
+        const emailField = registerForm.querySelector('input[name="email"]');
+        const phoneField = registerForm.querySelector('input[name="phone"]');
+        const birthDateField = registerForm.querySelector('input[name="birthDate"]');
+        const enrollDateField = registerForm.querySelector('input[name="enrollDate"]');
+        const gradeLevelField = registerForm.querySelector('select[name="gradeLevel"]');
+        const courseField = registerForm.querySelector('select[name="course"]');
+        const passField = registerForm.querySelector('input[name="password"]');
+        const confirmPassField = registerForm.querySelector('input[name="confirmPassword"]');
+        const terms = document.getElementById('terms-solo');
+
+        if (!studentIdField.value.trim() || !firstNameField.value.trim() || !lastNameField.value.trim() || !emailField.value.trim() || !phoneField.value.trim() || !birthDateField.value || !enrollDateField.value || !gradeLevelField.value || !courseField.value || !passField.value || !confirmPassField.value) {
+          alert('Please fill in all required fields.');
+          return;
+        }
+        if (passField.value.length < 6) {
+          alert('Password must be at least 6 characters long.');
+          return;
+        }
+        if (passField.value !== confirmPassField.value) {
+          alert('Passwords do not match.');
+          return;
+        }
+        if (!terms.checked) {
+          alert('You must accept the terms to register.');
+          return;
+        }
+
+        const storedCredentials = getStoredCredentials();
+        const storedAccounts = getStoredAccounts();
+        const studentId = studentIdField.value.trim();
+        const newPassword = passField.value;
+
+        if (storedCredentials[studentId] || validCredentials[studentId]) {
+          alert('This student ID is already registered. Please use another one.');
+          return;
+        }
+
+        storedCredentials[studentId] = newPassword;
+        storedAccounts[studentId] = {
+          studentId,
+          firstName: firstNameField.value.trim(),
+          lastName: lastNameField.value.trim(),
+          email: emailField.value.trim(),
+          phone: phoneField.value.trim(),
+          birthDate: birthDateField.value,
+          enrollDate: enrollDateField.value,
+          gradeLevel: gradeLevelField.value,
+          course: courseField.value
+        };
+        saveStoredCredentials(storedCredentials);
+        saveStoredAccounts(storedAccounts);
+
+        alert(`Welcome, ${firstNameField.value.trim()}! Your account has been registered and you are being logged in.`);
+        loginUser(studentId);
+      });
+
+      const demoLinks = document.querySelectorAll('.footnote a, .checkbox-row a, .switch-link a');
+      demoLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          const href = link.getAttribute('href');
+          if (href === '#' || href.startsWith('#') || link.id === 'gotoRegister' || link.id === 'gotoLogin') {
+            if (!link.id) e.preventDefault(); 
+          }
+        });
+      });
+    })();
+  </script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

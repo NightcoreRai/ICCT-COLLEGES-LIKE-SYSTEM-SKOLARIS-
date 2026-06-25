@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard - ICCT School Portal</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="header">
+    <div class="logo">
+      <div class="logo-icon">📚</div>
+      <div class="logo-text">
+        <span class="logo-name">ICCT Colleges</span>
+        <span class="logo-sub">Student Portal</span>
+      </div>
+    </div>
+    <div class="nav-right">
+      <div class="user-profile">
+        <div class="user-avatar" id="userInitial">JD</div>
+        <div>
+          <div class="user-name" id="userName">John Doe</div>
+          <div class="user-role">Student</div>
+        </div>
+      </div>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+   
+  </div>
+
+  <div class="dashboard-container">
+    <div class="sidebar">
+      <div class="sidebar-section-label">Navigation</div>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="#dashboard" class="nav-link active" onclick="showSection('dashboard')">
+            <span class="nav-icon">📊</span>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#courses" class="nav-link" onclick="showSection('courses')">
+            <span class="nav-icon">📚</span>
+            <span>Courses</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#grades" class="nav-link" onclick="showSection('grades')">
+            <span class="nav-icon">📈</span>
+            <span>Grades</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#attendance" class="nav-link" onclick="showSection('attendance')">
+            <span class="nav-icon">✓</span>
+            <span>Attendance</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#schedule" class="nav-link" onclick="showSection('schedule')">
+            <span class="nav-icon">📅</span>
+            <span>Schedule</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#profile" class="nav-link" onclick="showSection('profile')">
+            <span class="nav-icon">👤</span>
+            <span>Profile</span>
+          </a>
+        </li>
+         <li class="nav-item">
+          <a href="#shop" class="nav-link" onclick="showSection('shop')">
+            <span class="nav-icon">🛍️</span>
+            <span>School Shop</span>
+          </a>
+        </li>
+
+<li class="nav-item">
+  <a href="#notifications" class="nav-link" onclick="showSection('notifications')">
+    <span class="nav-icon">🔔</span>
+    <span>Notifications</span>
+  </a>
+</li>
+
+<li class="nav-item">
+  <a href="#status" class="nav-link" onclick="showSection('status')">
+    <span class="nav-icon">🟢</span>
+    <span>System Status</span>
+  </a>
+</li>
+
+<li class="nav-item">
+  <a href="#help" class="nav-link" onclick="showSection('help')">
+    <span class="nav-icon">❓</span>
+    <span>Help Center</span>
+  </a>
+</li>
+      </ul>
+    </div>
+
+    <div class="main-content">
+      <section id="dashboard-section" style="display: block;">
+        <h1 style="margin-bottom: 2rem; color: #0c2f46;">Welcome back, <span id="welcomeName">STUDENT!</span>!</h1>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label">Current GPA</div>
+            <div class="stat-value" id="gpaValue">3.85</div>
+            <div class="stat-change">↑ 0.15 from last semester</div>
+          </div>
+          <div class="stat-card" style="border-left-color: #27ae60;">
+            <div class="stat-label">Attendance Rate</div>
+            <div class="stat-value" id="attendanceValue">95%</div>
+            <div class="stat-change" style="color: #27ae60;">Excellent</div>
+          </div>
+          <div class="stat-card" style="border-left-color: #3498db;">
+            <div class="stat-label">Courses Enrolled</div>
+            <div class="stat-value" id="coursesValue">5</div>
+            <div class="stat-change" style="color: #3498db;">Fall 2024</div>
+          </div>
+          <div class="stat-card" style="border-left-color: #9b59b6;">
+            <div class="stat-label">Assignments Due</div>
+            <div class="stat-value" id="dueSoonValue">3</div>
+            <div class="stat-change" style="color: #f39c12;">This week</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Recent Grades</h2>
+            <a href="#grades" onclick="showSection('grades')" style="color: #1152a0; text-decoration: none; font-weight: 600;">View All →</a>
+          </div>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Course</th>
+                  <th>Assignment</th>
+                  <th>Score</th>
+                  <th>Grade</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>CS101</strong> - Intro to CS</td>
+                  <td>Assignment 3</td>
+                  <td>92/100</td>
+                  <td><span class="badge badge-success">A</span></td>
+                  <td>Nov 15, 2024</td>
+                </tr>
+                <tr>
+                  <td><strong>MATH201</strong> - Calculus I</td>
+                  <td>Midterm Exam</td>
+                  <td>88/100</td>
+                  <td><span class="badge badge-success">B+</span></td>
+                  <td>Nov 10, 2024</td>
+                </tr>
+                <tr>
+                  <td><strong>ENG101</strong> - English Comp</td>
+                  <td>Essay 2</td>
+                  <td>95/100</td>
+                  <td><span class="badge badge-success">A</span></td>
+                  <td>Nov 8, 2024</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Today's Classes</h2>
+          </div>
+          <div style="display: grid; gap: 1rem;">
+            <div style="border-left: 4px solid #1152a0; padding: 1rem; background: rgba(17, 82, 160, 0.05); border-radius: 0.5rem;">
+              <div style="font-weight: 600; margin-bottom: 0.3rem;">CS101 - Introduction to Computer Science</div>
+              <div style="font-size: 0.9rem; color: #7f8c8d;">📍 Room 301 | ⏰ 10:00 AM - 11:30 AM</div>
+            </div>
+            <div style="border-left: 4px solid #27ae60; padding: 1rem; background: rgba(39, 174, 96, 0.05); border-radius: 0.5rem;">
+              <div style="font-weight: 600; margin-bottom: 0.3rem;">MATH201 - Calculus I</div>
+              <div style="font-size: 0.9rem; color: #7f8c8d;">📍 Room 215 | ⏰ 1:00 PM - 2:30 PM</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="courses-section" style="display: none;">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">My Courses</h2>
+          </div>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Course Code</th>
+                  <th>Course Name</th>
+                  <th>Instructor</th>
+                  <th>Credits</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>CC02</strong></td>
+                  <td>Introduction to Computer Programming</td>
+                  <td>Jane Smith</td>
+                  <td>3</td>
+                  <td><span class="badge badge-success">Enrolled</span></td>
+                </tr>
+                <tr>
+                  <td><strong>CALC01</strong></td>
+                  <td>Calculus I</td>
+                  <td>John Johnson</td>
+                  <td>4</td>
+                  <td><span class="badge badge-success">Enrolled</span></td>
+                </tr>
+                <tr>
+                  <td><strong>OLENG01</strong></td>
+                  <td>English Composition</td>
+                  <td>Sarah Williams</td>
+                  <td>3</td>
+                  <td><span class="badge badge-success">Enrolled</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="grades-section" style="display: none;">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Academic Grades</h2>
+          </div>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Course</th>
+                  <th>Current Grade</th>
+                  <th>Assignment Avg</th>
+                  <th>Exam Score</th>
+                  <th>Letter Grade</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>CS101</strong> - Intro to CS</td>
+                  <td>92%</td>
+                  <td>90%</td>
+                  <td>94%</td>
+                  <td><span class="badge badge-success">A</span></td>
+                </tr>
+                <tr>
+                  <td><strong>MATH201</strong> - Calculus I</td>
+                  <td>88%</td>
+                  <td>85%</td>
+                  <td>91%</td>
+                  <td><span class="badge badge-success">B+</span></td>
+                </tr>
+                <tr>
+                  <td><strong>ENG101</strong> - English Comp</td>
+                  <td>95%</td>
+                  <td>96%</td>
+                  <td>94%</td>
+                  <td><span class="badge badge-success">A</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="attendance-section" style="display: none;">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Attendance Record</h2>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <div class="alert alert-success">
+              ✓ Your attendance rate is <strong>95%</strong> - Excellent! Keep it up.
+            </div>
+          </div>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Course</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Remarks</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>CS101</strong></td>
+                  <td>Nov 20, 2024</td>
+                  <td><span class="badge badge-success">Present</span></td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td><strong>MATH201</strong></td>
+                  <td>Nov 20, 2024</td>
+                  <td><span class="badge badge-success">Present</span></td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td><strong>CS101</strong></td>
+                  <td>Nov 18, 2024</td>
+                  <td><span class="badge badge-warning">Late</span></td>
+                  <td>Traffic</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="schedule-section" style="display: none;">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Class Schedule - Fall 2024</h2>
+          </div>
+          <div style="overflow-x: auto;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Time</th>
+                  <th>Monday</th>
+                  <th>Tuesday</th>
+                  <th>Wednesday</th>
+                  <th>Thursday</th>
+                  <th>Friday</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>10:00 AM</strong></td>
+                  <td>CS101 (301)</td>
+                  <td>-</td>
+                  <td>CS101 (301)</td>
+                  <td>-</td>
+                  <td>CS101 (301)</td>
+                </tr>
+                <tr>
+                  <td><strong>1:00 PM</strong></td>
+                  <td>-</td>
+                  <td>MATH201 (215)</td>
+                  <td>-</td>
+                  <td>MATH201 (215)</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td><strong>3:00 PM</strong></td>
+                  <td>ENG101 (120)</td>
+                  <td>-</td>
+                  <td>ENG101 (120)</td>
+                  <td>-</td>
+                  <td>ENG101 (120)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="profile-section" style="display: none;">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Student Profile</h2>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+            <div>
+              <div class="form-group">
+                <label>Student ID</label>
+                <input type="text" id="profileStudentId" readonly>
+              </div>
+              <div class="form-group">
+                <label>First Name</label>
+                <input type="text" id="profileFirstName">
+              </div>
+              <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" id="profileLastName">
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" id="profileEmail">
+              </div>
+            </div>
+            <div>
+              <div class="form-group">
+                <label>Date of Birth</label>
+                <input type="date" id="profileBirthDate">
+              </div>
+              <div class="form-group">
+                <label>Phone</label>
+                <input type="tel" id="profilePhone">
+              </div>
+              <div class="form-group">
+                <label>Grade Level</label>
+                <input type="text" id="profileGradeLevel" readonly>
+              </div>
+              <div class="form-group">
+                <label>Enrollment Date</label>
+                <input type="date" id="profileEnrollDate" readonly>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+            <button class="btn-primary" onclick="updateProfileInfo()">Update Profile</button>
+            <button class="btn-secondary" onclick="togglePasswordChange()">Change Password</button>
+          </div>
+          <div id="passwordChangeBox" style="display: none; margin-top: 2rem; padding: 1.5rem; background: #f8fbff; border-radius: 0.8rem; border: 1px solid #dbe7f5;">
+            <h3 style="margin-bottom: 1rem; color: #0c2f46;">Change Password</h3>
+            <div style="display: grid; gap: 1rem;">
+              <div class="form-group">
+                <label>Current Password</label>
+                <input type="password" id="currentPassword" placeholder="Current password">
+              </div>
+              <div class="form-group">
+                <label>New Password</label>
+                <input type="password" id="newPassword" placeholder="New password">
+              </div>
+              <div class="form-group">
+                <label>Confirm New Password</label>
+                <input type="password" id="confirmNewPassword" placeholder="Confirm new password">
+              </div>
+            </div>
+            <div style="margin-top: 1rem; display: flex; gap: 1rem;">
+              <button class="btn-primary" onclick="changePassword()">Save Password</button>
+              <button class="btn-secondary" onclick="togglePasswordChange()">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <!-- SHOP SECTION -->
+       <section id="shop-section" style="display: none;">
+        <h1><i class="fas fa-store"></i> School Shop</h1>
+        
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title"><i class="fas fa-shopping-bag"></i> Uniforms & Accessories</h2>
+            <div class="cart-badge" style="background: var(--icct-navy); color: white; padding: 0.3rem 0.8rem; border-radius: 2rem; display: flex; align-items: center; gap: 0.5rem;">
+              <i class="fas fa-shopping-cart"></i>
+              <span id="shopCartCounter">0</span> items
+            </div>
+          </div>
+          
+          <div class="shop-grid" id="shopGrid">
+            <!-- Items will be rendered by JavaScript -->
+          </div>
+          
+          <div style="margin-top: 1.5rem; border-top: 1px solid var(--border); padding-top: 1rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+              <div>
+                <strong>Shopping List</strong>
+                <div class="cart-items-list" id="cartItemsList">
+                  <span class="empty-cart">Your cart is empty</span>
+                </div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+                <span class="cart-total">Total: ₱<span id="cartTotal">0.00</span></span>
+                <button class="btn-secondary" id="clearCartBtn" style="padding: 0.3rem 1rem;">
+                  <i class="fas fa-trash"></i> Clear
+                </button>
+                <button class="btn-success" id="checkoutBtn">
+                  <i class="fas fa-credit-card"></i> Pay with GCash
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- NOTIFICATIONS -->
+      <section id="notifications-section" style="display: none;">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Notifications</h2>
+          </div>
+          <div class="alert alert-success">New grades posted in CS101.</div>
+          <div class="alert alert-warning">Assignment due tomorrow.</div>
+          <div class="alert alert-info">Enrollment period starts next week.</div>
+        </div>
+      </section>
+
+      <!-- STATUS -->
+      <section id="status-section" style="display: none;">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">System Status</h2>
+          </div>
+          <table>
+            <tr>
+              <td>Student Portal</td>
+              <td style="color:green;">Online</td>
+            </tr>
+            <tr>
+              <td>Enrollment System</td>
+              <td style="color:green;">Online</td>
+            </tr>
+            <tr>
+              <td>Payment Gateway</td>
+              <td style="color:orange;">Maintenance</td>
+            </tr>
+          </table>
+        </div>
+      </section>
+
+      <!-- HELP -->
+      <section id="help-section" style="display: none;">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Help Center</h2>
+          </div>
+          <h3>Frequently Asked Questions</h3>
+          <p><strong>How do I enroll?</strong></p>
+          <p>Go to Enrollment > Select Subjects > Submit.</p>
+          <p><strong>How do I change my password?</strong></p>
+          <p>Open Profile > Change Password.</p>
+          <p><strong>How can I contact support?</strong></p>
+          <p>Email: support@icct.edu.ph</p>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- GCASH PAYMENT MODAL -->
+  <div class="modal" id="gcashModal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeGcashModal()">&times;</button>
+      
+      <div class="gcash-header">
+        <div class="gcash-logo">GC</div>
+        <div>
+          <div class="gcash-title">GCash Payment</div>
+          <div class="gcash-subtitle">Scan or pay via GCash</div>
+        </div>
+      </div>
+
+      <div class="payment-details">
+        <div class="payment-row">
+          <span class="payment-label">Total Amount</span>
+          <span class="payment-value" id="modalTotal">₱0.00</span>
+        </div>
+        <div class="payment-row">
+          <span class="payment-label">Items</span>
+          <span class="payment-value" id="modalItemCount">0</span>
+        </div>
+      </div>
+
+      <div class="gcash-number-box">
+        <div class="gcash-number-label">Send payment to:</div>
+        <div class="gcash-number">0917 123 4567</div>
+        <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.3rem;">ICCT Colleges Official GCash</div>
+      </div>
+
+      <div class="reference-input">
+        <label style="font-weight: 600; font-size: 0.9rem; display: block; margin-bottom: 0.5rem;">
+          <i class="fas fa-receipt"></i> Reference Number
+        </label>
+        <input type="text" id="referenceNumber" placeholder="Enter GCash reference number" maxlength="20">
+      </div>
+
+      <div style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+        <button class="btn-success" onclick="confirmPayment()" style="flex: 1;">
+          <i class="fas fa-check"></i> Confirm Payment
+        </button>
+        <button class="btn-secondary" onclick="closeGcashModal()">Cancel</button>
+      </div>
+
+      <div id="paymentMessage" style="margin-top: 1rem; display: none;"></div>
+    </div>
+  </div>
+  <script src="js/dashboard.js"></script>
+</body>
+</html> 

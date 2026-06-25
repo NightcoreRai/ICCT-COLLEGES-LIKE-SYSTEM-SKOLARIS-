@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ICCT School Portal - Welcome</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="logo">📚 ICCT Portal</a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link active" onclick="setActiveNav('home')">Home</a></li>
+        <li><a href="about.html" class="nav-link" onclick="setActiveNav('about')">About</a></li>
+        <li><a href="contact.html" class="nav-link" onclick="setActiveNav('contact')">Contact</a></li>
+        <li><a href="faq.html" class="nav-link" onclick="setActiveNav('faq')">FAQ</a></li>
+      </ul>
+      <div class="auth-buttons">
+        <a href="../loginICCT.html/Project/icctlogin.html" class="btn-login">Login</a>
+        <a href="../loginICCT.html/Project/icctlogin.html" class="btn-register">Sign Up</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to ICCT School Portal</h1>
+      <p>Your complete Student Information System for academic excellence and student success</p>
+      <div class="hero-buttons">
+        <a href="../loginICCT.html/Project/icctlogin.html" class="btn-primary">Get Started</a>
+        <a href="about.html" class="btn-secondary">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="section" style="background: var(--background-light);">
+    <div class="container">
+      <h2 class="section-title">Our Features</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Student Dashboard</h3>
+          <p>Access your grades, attendance, and academic records in one centralized location.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📚</div>
+          <h3>Course Management</h3>
+          <p>View enrolled courses, class schedules, and course materials all in one place.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">✓</div>
+          <h3>Attendance Tracking</h3>
+          <p>Monitor attendance records and get real-time notifications about your status.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📈</div>
+          <h3>Grade Reports</h3>
+          <p>View detailed grade reports and academic progress throughout the semester.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔔</div>
+          <h3>Notifications</h3>
+          <p>Receive real-time alerts for important announcements and academic updates.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📱</div>
+          <h3>Mobile Friendly</h3>
+          <p>Access the portal from any device - desktop, tablet, or smartphone.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Section -->
+  <section class="section">
+    <div class="container" style="text-align: center;">
+      <h2 class="section-title">Ready to Get Started?</h2>
+      <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 2rem;">
+        Join thousands of students already using ICCT Portal to track their academic journey.
+      </p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="../loginICCT.html/Project/icctlogin.html" class="btn-primary">Login to Portal</a>
+        <a href="about.html" class="btn-secondary">Learn About ICCT</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="section" style="background: var(--primary-color); color: white;">
+    <div class="container" style="text-align: center;">
+      <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Stay Updated</h2>
+      <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.9;">Subscribe to our newsletter for the latest updates and announcements.</p>
+      <form onsubmit="subscribeNewsletter(event)" style="display: flex; max-width: 400px; margin: 0 auto;">
+        <input 
+          type="email" 
+          id="newsletterEmail"
+          placeholder="Enter your email" 
+          required
+          style="flex: 1; padding: 0.9rem; border: none; border-radius: 0.5rem 0 0 0.5rem;"
+        >
+        <button type="submit" style="background: white; color: var(--primary-color); padding: 0.9rem 2rem; border: none; border-radius: 0 0.5rem 0.5rem 0; cursor: pointer; font-weight: 600;">
+          Subscribe
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>About ICCT</h4>
+        <p>Information and Communications Technology Center - Your premier institution for academic excellence.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contact Info</h4>
+        <ul>
+          <li><a href="tel:+6326304228">(02) 630-4228</a></li>
+          <li><a href="tel:+6325703280">(02) 570-3280</a></li>
+          <li><a href="mailto:antipolo@icct.edu.ph">antipolo@icct.edu.ph</a></li>
+          <li><a href="#">ICCT Bldg., Sumulong Extension St.<br>Brgy. San Roque, Antipolo City, Rizal</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 ICCT School Portal. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

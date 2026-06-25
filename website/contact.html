@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - ICCT School Portal</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="logo">📚 ICCT Portal</a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link" onclick="setActiveNav('home')">Home</a></li>
+        <li><a href="about.html" class="nav-link" onclick="setActiveNav('about')">About</a></li>
+        <li><a href="contact.html" class="nav-link active" onclick="setActiveNav('contact')">Contact</a></li>
+        <li><a href="faq.html" class="nav-link" onclick="setActiveNav('faq')">FAQ</a></li>
+      </ul>
+      <div class="auth-buttons">
+        <a href="../loginICCT.html/Project/icctlogin.html" class="btn-login">Login</a>
+        <a href="../loginICCT.html/Project/icctlogin.html" class="btn-register">Sign Up</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Title Section -->
+  <section style="background: linear-gradient(135deg, #0c2f46, #154b6e); color: white; padding: 4rem 2rem; text-align: center;">
+    <div class="container">
+      <h1 style="font-size: 2.8rem; margin-bottom: 0.5rem;">Contact Us</h1>
+      <p style="font-size: 1.2rem; opacity: 0.9;">We're here to help. Get in touch with us</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 3rem;">
+        <!-- Contact Info -->
+        <div>
+          <h2 style="color: #0c2f46; margin-bottom: 2rem; font-size: 1.8rem;">Get In Touch</h2>
+          
+          <div style="margin-bottom: 2rem;">
+            <h3 style="color: #0c2f46; margin-bottom: 0.5rem;">📍 Address</h3>
+            <p style="color: #7f8c8d;">
+              ICCT Bldg., Sumulong Extension St.<br>
+              Brgy. San Roque, Antipolo City, Rizal<br>
+              Near the Rizal Provincial Capitol and Ynares Center
+            </p>
+          </div>
+
+          <div style="margin-bottom: 2rem;">
+            <h3 style="color: #0c2f46; margin-bottom: 0.5rem;">📞 Phone</h3>
+            <p style="color: #7f8c8d;">
+              (02) 630-4228<br>
+              (02) 570-3280
+            </p>
+          </div>
+
+          <div style="margin-bottom: 2rem;">
+            <h3 style="color: #0c2f46; margin-bottom: 0.5rem;">✉️ Email</h3>
+            <p style="color: #7f8c8d;">
+              antipolo@icct.edu.ph
+            </p>
+          </div>
+
+          <div>
+            <h3 style="color: #0c2f46; margin-bottom: 0.5rem;">⏰ Office Hours</h3>
+            <p style="color: #7f8c8d;">
+              Monday - Friday: 8:00 AM - 5:00 PM<br>
+              Saturday: 9:00 AM - 1:00 PM<br>
+              Sunday: Closed
+            </p>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div>
+          <h2 style="color: #0c2f46; margin-bottom: 2rem; font-size: 1.8rem;">Send us a Message</h2>
+          <form onsubmit="submitContactForm(event)" class="contact-form">
+            <div class="form-group">
+              <label for="contactName">Your Name</label>
+              <input type="text" id="contactName" name="name" required placeholder="John Doe">
+            </div>
+            <div class="form-group">
+              <label for="contactEmail">Email Address</label>
+              <input type="email" id="contactEmail" name="email" required placeholder="john@example.com">
+            </div>
+            <div class="form-group">
+              <label for="contactSubject">Subject</label>
+              <input type="text" id="contactSubject" name="subject" required placeholder="How can we help?">
+            </div>
+            <div class="form-group">
+              <label for="contactMessage">Message</label>
+              <textarea id="contactMessage" name="message" rows="5" required placeholder="Your message here..."></textarea>
+            </div>
+            <button type="submit" class="btn-primary" style="width: 100%; padding: 1rem; font-size: 1rem;">Send Message</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Map Section -->
+      <div style="margin-top: 3rem;">
+        <h2 style="color: #0c2f46; margin-bottom: 2rem; text-align: center; font-size: 1.8rem;">📍 Campus Location</h2>
+        <div style="background: linear-gradient(135deg, rgba(12, 47, 70, 0.1), rgba(17, 82, 160, 0.1)); border-radius: 0.8rem; height: 400px; display: flex; align-items: center; justify-content: center;">
+          <div style="text-align: center;">
+            <div style="font-size: 4rem; margin-bottom: 1rem;">🗺️</div>
+            <p style="color: #7f8c8d; font-size: 1.1rem;">Interactive map would be displayed here</p>
+            <p style="color: #999; font-size: 0.9rem;">Integrate with Google Maps API for live location</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section" style="background: var(--background-light);">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div style="max-width: 800px; margin: 0 auto;">
+        <div style="background: white; padding: 1.5rem; border-radius: 0.8rem; margin-bottom: 1rem; border: 1px solid #e0e6ed;">
+          <h3 style="color: #0c2f46; margin-bottom: 0.5rem; cursor: pointer;" onclick="toggleFAQ(this)">❓ How do I reset my password?</h3>
+          <p style="color: #7f8c8d; display: none; margin-top: 1rem;">You can reset your password by clicking the "Forgot Password?" link on the login page. Follow the instructions sent to your registered email address.</p>
+        </div>
+        <div style="background: white; padding: 1.5rem; border-radius: 0.8rem; margin-bottom: 1rem; border: 1px solid #e0e6ed;">
+          <h3 style="color: #0c2f46; margin-bottom: 0.5rem; cursor: pointer;" onclick="toggleFAQ(this)">❓ What are the admission requirements?</h3>
+          <p style="color: #7f8c8d; display: none; margin-top: 1rem;">We require a high school diploma or equivalent, a completed application form, and standardized test scores. Please visit our admissions page for detailed requirements.</p>
+        </div>
+        <div style="background: white; padding: 1.5rem; border-radius: 0.8rem; margin-bottom: 1rem; border: 1px solid #e0e6ed;">
+          <h3 style="color: #0c2f46; margin-bottom: 0.5rem; cursor: pointer;" onclick="toggleFAQ(this)">❓ Is the portal accessible on mobile devices?</h3>
+          <p style="color: #7f8c8d; display: none; margin-top: 1rem;">Yes! Our portal is fully responsive and works on all devices including smartphones and tablets.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>About ICCT</h4>
+        <p>Information and Communications Technology Center - Your premier institution for academic excellence.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contact Info</h4>
+        <ul>
+          <li><a href="tel:+6326304228">(02) 630-4228</a></li>
+          <li><a href="tel:+6325703280">(02) 570-3280</a></li>
+          <li><a href="mailto:antipolo@icct.edu.ph">antipolo@icct.edu.ph</a></li>
+          <li><a href="#">ICCT Bldg., Sumulong Extension St.<br>Brgy. San Roque, Antipolo City, Rizal</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 ICCT School Portal. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    function toggleFAQ(element) {
+      const answer = element.nextElementSibling;
+      answer.style.display = answer.style.display === 'none' ? 'block' : 'none';
+    }
+  </script>
+</body>
+</html>
